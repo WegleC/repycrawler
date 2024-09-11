@@ -8,14 +8,14 @@
 <body background="imeges/leaves.png" text="#6C3365">
     <form action="submit.py" method="get" enctype="multipart/form-data">
 
-        <input type="radio" name="gender" value="XY" checked>male<br>
-        <input type="radio" name="gender" value="Xx">female<br>
-        <br>
-        Please choose your interest program language below:<br>
-        <input type="checkbox" name="info[]" value="1">HTML<br>
-        <input type="checkbox" name="info[]" value="2">Python<br>
-        <input type="checkbox" name="info[]" value="3">C++<br>
-        <input type="checkbox" name="info[]" value="4">Java<br>
+        please choose payment method:
+        <select name="select_one">
+            <option>--------</option>
+            <option value="0">Paypal</option>
+            <option value="1">Line pay</option>
+            <option value="2">Google pay</option>
+            <option value="3">Apple pay</option>
+        </select>
 
         <input type="submit">
 

@@ -8,17 +8,14 @@
 <body background="imeges/leaves.png" text="#6C3365">
     <form action="submit.py" method="get" enctype="multipart/form-data">
 
-        staff number:<input type="text" name="staffnum" value="BG484" disabled><br>
-        <font color=red>*</font>name:<input type="text" name="username" placeholder="your name" required><br>
-        <font color=red>*</font>password:<input type="password" name="userpwd" placeholder="your password" required><br>
-        phonenumber:<input type="text" name="userphonenb" size="10" placeholder="09xxxxxxxx"><br>
-        amount:<input type="number" name="num" value="1"><br>
-        email:<input type="email" name="useremail" placeholder="user@mail.com"><br>
-        choose color:<input type="color" name="chcolor"><br>
-        date:<input type="date" name="mydate"><br>
-        time:<input type="time" name="mytime"><br>
-        date&time:<input type="datetime-local" name="mydatetime"><br>
-
+        upload file:<input type="file" name="myfileA"><br>
+        upload imege:<input type="file" name="myimg" accept=".jpg,.jpeg,.png"><br>
+        <br>
+        upload file:<input type="file" name="myfile[]"><br>
+        upload file:<input type="file" name="myfile[]"><br>
+        upload file:<input type="file" name="myfile[]"><br>
+        upload file:<input type="file" name="myfile[]"><br>
+        
         <input type="submit">
 
     </form>

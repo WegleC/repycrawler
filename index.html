@@ -11,6 +11,7 @@
 
 <body>
     <p id="box"></p>
+    <p id="box2"></p>
 </body>
 </html>
 <script>
@@ -21,7 +22,11 @@
         color:"Red"
     };
     console.log(ff);
-    console.log(ff.type)
-    document.getElementById("box").innerHTML =ff.color+", "+"King of Fruit:"+" "+ff.type+" "+",Price="+ff.price;
+    console.log(ff.type);
+    document.getElementById("box").innerHTML = ff.color+", "+"King of Fruit:"+" "+ff.type+" "+",Price="+ff.price;
+
+    namelist = ["Wegle","Coco","Krito"];
+    console.log(namelist);
+    document.getElementById("box2").innerHTML = namelist[0];
 
 </script>

@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/index.js"></script>
+    <!-- <script src="js/index.js"></script> -->
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
 </head>
 
 <body>
-
-        price:<input type="text" id="price"><br>
-        amount:<input type="number" min="1" max="99" id="num"><br>
-        
-        <button onclick="cal()">Count</button><br>
-        total:<input type="text" id="total" readonly> 
-
+    <p id="box"></p>
 </body>
 </html>
+<script>
+
+    ff = {
+        type:"Apple",
+        price:"50",
+        color:"Red"
+    };
+    console.log(ff);
+    console.log(ff.type)
+    document.getElementById("box").innerHTML =ff.color+", "+"King of Fruit:"+" "+ff.type+" "+",Price="+ff.price;
+
+</script>

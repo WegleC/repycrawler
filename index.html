@@ -10,23 +10,17 @@
 </head>
 
 <body>
-    <p id="box"></p>
+    <p id="box1"></p>
     <p id="box2"></p>
+    <p id="box3"></p>
 </body>
 </html>
 <script>
 
-    ff = {
-        type:"Apple",
-        price:"50",
-        color:"Red"
-    };
-    console.log(ff);
-    console.log(ff.type);
-    document.getElementById("box").innerHTML = ff.color+", "+"King of Fruit:"+" "+ff.type+" "+",Price="+ff.price;
+    staff = {Name:"Wegle",Addr:"Yilan",Age:"22"};
+    Menber = ["Yiru","Coco","Krito"];
 
-    namelist = ["Wegle","Coco","Krito"];
-    console.log(namelist);
-    document.getElementById("box2").innerHTML = namelist[0];
-
+    document.getElementById("box1").innerHTML = "Area :"+staff.Addr;
+    document.getElementById("box2").innerHTML = "Staff Name :"+staff.Name;
+    document.getElementById("box3").innerHTML = "Supervisor :"+Menber [0];
 </script>

@@ -1,11 +1,24 @@
-def myfn1():
-    print("Hello world!!");
+import requests
+from bs4 import BeautifulSoup
+
+#%%
+
+def main():
     
+    print("Hello world!");
 
 
-if __name__ == '__main__':
-    print("Hi!")
+def get_tag_text(url,tag):
+    try:
+        resp = requests.get(url)
+        if resp.status_code == 200:
+        soup = BeautifulSoup(resp.text,'html.parser')
+        return soup.find(tag).text
+    except Exception as e:
+        print('Error: %s' % e);
+        return None;
 
-    myfn1();
+#%%
 
-    print("name:",__name__)
+if __name__ == "__main__":
+    main();

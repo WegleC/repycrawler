@@ -1,5 +1,5 @@
-from crawler import myfn1
+# from crawler import myfn1
 
-print("Hello!!")
+# print("Hello!!")
 
-myfn1()
+# myfn1()

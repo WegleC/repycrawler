@@ -5,28 +5,21 @@ from bs4 import BeautifulSoup
 
 def main():
     
-    resp = requests.get('https://www.dotblogs.com.tw/YiruAtStudio');
+    resp = requests.get('https://blog.castman.net/py-scraping-analysis-book/ch2/blog/blog.html');
     print(resp.status_code);
     
     soup = BeautifulSoup(resp.text,'html.parser');
     
-    main_title = soup.find_all('h3','article__title');
-    # print(main_title);
-    # print("================================================");
-    
-    B2 = soup.find_all('h3',{'class':'article__title'})
-    # print(B2);
-    # print("================================================");
-    
-    B3 = soup.find_all('h3',class_='article__title')
-    # print(B3);
-    # print("================================================");
-
-    for title in B3:
-        print(title.text);
-        print("================================================");
+    main_title = soup.find(id="mac-p");
+    print(main_title);
+    print("====================================");
     
     
+    print(main_title.text);
+    print("====================================");
+    
+    print(main_title.a.text);
+    print("===================================")
 
 
 

@@ -10,13 +10,23 @@ def main():
     
     soup = BeautifulSoup(resp.text,'html.parser');
     
-    main_title = soup.find_all('h3');
+    main_title = soup.find_all('h3','article__title');
     # print(main_title);
+    # print("================================================");
     
-    for title in main_title:
-        print(title.text);
-        print("====================================================")
+    B2 = soup.find_all('h3',{'class':'article__title'})
+    # print(B2);
+    # print("================================================");
+    
+    B3 = soup.find_all('h3',class_='article__title')
+    # print(B3);
+    # print("================================================");
 
+    for title in B3:
+        print(title.text);
+        print("================================================");
+    
+    
 
 
 

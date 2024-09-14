@@ -10,17 +10,10 @@ def main():
     
     soup = BeautifulSoup(resp.text,'html.parser');
     
-    main_title = soup.find(id="mac-p");
+    main_title = soup.find('a',{"data-foo":"mac-foo"});
     print(main_title);
     print("====================================");
-    
-    
     print(main_title.text);
-    print("====================================");
-    
-    print(main_title.a.text);
-    print("===================================")
-
 
 
 

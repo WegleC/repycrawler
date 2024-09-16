@@ -6,33 +6,23 @@ import re
 
 def main():
     
-    resp = requests.get('https://www.dotblogs.com.tw/YiruAtStudio');
+    resp = requests.get('https://live.rookiesavior.net/');
     # print(resp.status_code);
     
     soup = BeautifulSoup(resp.text,'html.parser');
     
-    titles = soup.find_all(['h1','h2','h3','h4','h5','h6'])
-    # print(titles)
+    imgs = soup.find_all('img')
+    # print(imgs)
 
-    # for title in titles:
-    #     print("=====================")
-    #     print(title.text.strip())
-    
+    # for img in imgs:
+    #     if 'src' in img.attrs:
+    #         if img['src'].endswith('.png'):
+    #             print(img['src'])
+
 #%%
 
-    soup = BeautifulSoup(resp.text,'html.parser');
-    
-    titles = soup.find_all(re.compile('h[1-6]'))
-    # print(titles)
-
-
-    for title in titles:
-        print("=====================")
-        print(title.text.strip())
-    
-
-
-
+    for img in soup.find_all('img',{'src':re.compile('.png')}):
+        print(img['src'])
 
 
 

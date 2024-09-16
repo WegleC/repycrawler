@@ -6,24 +6,24 @@ import re
 
 def main():
     
-    resp = requests.get('https://live.rookiesavior.net/');
-    # print(resp.status_code);
+    resp = requests.get('http://blog.castman.net/py-scraping-analysis-book/ch2/table/table.html');
+    print(resp.status_code);
     
     soup = BeautifulSoup(resp.text,'html.parser');
     
-    imgs = soup.find_all('img')
-    # print(imgs)
+    prices = []
+    
+    row_a = soup.find('table','table')
+    # print(row_a)
+    
+    row_b = row_a.tbody.find_all('tr')
+    # print(row_b)
+    
+    for row in row_b:
+        pp = row.find_all('td')[2].text
+        prices.append(pp)
 
-    # for img in imgs:
-    #     if 'src' in img.attrs:
-    #         if img['src'].endswith('.png'):
-    #             print(img['src'])
-
-#%%
-
-    for img in soup.find_all('img',{'src':re.compile('.png')}):
-        print(img['src'])
-
+    print(prices)
 
 
 #%%

@@ -24,6 +24,8 @@ def main():
         prices.append(int(pp))
 
     print(prices)
+    print(sum(prices))
+    print(len(prices))
 
 
 #%%

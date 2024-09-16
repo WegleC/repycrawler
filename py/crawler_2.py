@@ -1,34 +1,28 @@
 import requests
-from bs4 import BeautifulSoup
-import re
+
 
 #%%
 
 def main():
-    
-    resp = requests.get('http://blog.castman.net/py-scraping-analysis-book/ch2/table/table.html');
-    print(resp.status_code);
-    
-    soup = BeautifulSoup(resp.text,'html.parser');
-    
-    prices = []
-    
-    row_a = soup.find('table','table')
-    # print(row_a)
-    
-    row_b = row_a.tbody.find_all('tr')
-    # print(row_b)
-    
 
-    for row in row_b:
-        all_tds = row.find_all('td')
-        # print(all_tds)
-        if 'href' in all_tds[3].a.attrs:
-            href = all_tds[3].a['href']
-        else:
-            href = None
+    r = requests.get('https://tw.rter.info/capi.php')
+    data = r.json()
+    # print(data)
+    
+    for currency, info in data.items():
+        # print(currency)
+        # print(info)
         
-        print(all_tds[0].text,"||",all_tds[1].text,"||",all_tds[2].text,"||",href,"||",all_tds[3].a.img['src'],"||")
+        exrate = info['Exrate']
+        # print(exrate)
+        
+        updatetime = info['UTC']
+        # print(updatetime)
+        
+        print(f"Currency:{currency},Exrate:{exrate},Updatetime:{updatetime}")
+
+
+
 
 #%%
 

@@ -19,14 +19,16 @@ def main():
     row_b = row_a.tbody.find_all('tr')
     # print(row_b)
     
+
     for row in row_b:
-        pp = row.find_all('td')[2].text
-        prices.append(int(pp))
-
-    print(prices)
-    print(sum(prices))
-    print(len(prices))
-
+        all_tds = row.find_all('td')
+        # print(all_tds)
+        if 'href' in all_tds[3].a.attrs:
+            href = all_tds[3].a['href']
+        else:
+            href = None
+        
+        print(all_tds[0].text,"||",all_tds[1].text,"||",all_tds[2].text,"||",href,"||",all_tds[3].a.img['src'],"||")
 
 #%%
 

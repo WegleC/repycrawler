@@ -21,7 +21,7 @@ def main():
     
     for row in row_b:
         pp = row.find_all('td')[2].text
-        prices.append(pp)
+        prices.append(int(pp))
 
     print(prices)
 

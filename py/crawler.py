@@ -1,30 +1,11 @@
 import requests
-from bs4 import BeautifulSoup
 
 #%%
 
-def main():
-    
-    print("Hello world!");
-    url = 'https://www.yannick.com.tw/'
-    text = get_tag_text(url,'h3');
-    print(text);
+r = requests.get('https://raw.githubusercontent.com/wsmwason/taiwan-bank-code/master/data/taiwanBankCodeATM.json')
+data = r.json()
 
-#%%
-
-
-
-def get_tag_text(url,tag):
-    try:
-        resp = requests.get(url)
-        if resp.status_code == 200:
-            soup = BeautifulSoup(resp.text,'html.parser');
-        return soup.find(tag).text
-    except Exception as e:
-        print('Error: %s' % e);
-        return None;
-
-#%%
-
-if __name__ == "__main__":
-    main();
+# print(data)
+for bank_info in data:
+    print("BankCode:",bank_info['code'])
+    print("Bank:",bank_info['name'])

@@ -1,27 +1,27 @@
-
+import requests
 
 #%%
 
 def main():
-    my_dict = {
-        'a' : '46',
-        'b' : '50',
-        'c' : '98',
-        'd' : '83',
-        'e' : '76',
-    }
+    r = requests.get('https://vbs.sports.taipei/opendata/sports_tms2.json')
+    data = r.json()
     
-    for key_1 in my_dict.keys():
-        print(key_1)
-        
-    for value_1 in my_dict.values():
-        print(value_1)
+    # print(data)
+    for info in data:
+        print("場地所需分區:",info['Area'])
+        print("場地名稱:",info['Name'])
+        print("英文場地名稱:",info['NameEng'])
+        print("運動型態:",info['SportType'])
+        print("地址:",info['Address'])
+        print("英文地址：",info['AddressEng'])
+        print("開放時間:",info['startTime'])
+        print("關閉時間:",info['endTime'])
+        print("設施科聯絡電話:",info['LocalCallService'])
+        print("=======================================")
     
-    for key,value in my_dict.items():
-        print(key)
-        print(value)
-        print("===============")
-
+    
+    
+    
 
 #%%
 

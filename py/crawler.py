@@ -3,22 +3,19 @@ import json
 #%%
 
 def main():
-    r = requests.get('https://stats.moe.gov.tw/files/school/113/school08_new.json')
+    r = requests.get('https://www.twnic.tw/dnjson.json')
     
     text = r.content.decode('utf-8-sig')
 
     data = json.loads(text)
-    print(data)
+    # print(data)
 
-    for school in data:
-        print("學年度:",school['學年度'])
-        print("學校級別:",school['學校級別'])
-        print("學校代碼:",school['學校代碼'])
-        print("學校名稱",school['學校名稱'])
-        print("郵遞區號",school['郵遞區號'])
-        print("地址",school['地址'])
-
-        print("===============================")
+    for net in data:
+        print("網域名稱:",net['網域名稱'])
+        print("統計年月:",net['統計年月'])
+        print("數量:",net['數量'])
+    
+        print("===================================")
 
 
 

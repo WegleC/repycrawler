@@ -18,17 +18,20 @@
 </html>
 <script>
 
-    Menber = ["Yiru","Coco","Krito"];
+    Menber = ["Yiru","Coco","Krito","Wegle"];
 
-    menu_member = "<ul>";
-    
-    menu_member += "<li>" + Menber[0] + "</li>"+
-                    "<li>" + Menber[1] + "</li>"+
-                    "<li>" + Menber[2] + "</li>";
-    
-    menu_member += "</ul>";
+    menber_len = Menber.length;
 
-    console.log(menu_member);
+
+    menu_member = "<table border = 1>"+"<tr>";
+
+    for(i = 0; i < menber_len; i++ ){
+        menu_member +=  "<td>" + Menber[i] + "</td>" ;
+    }
+    
+    menu_member += "</tr>" + "</table>";
+
+    console.log(menu_member);3
     
     document.getElementById("box1").innerHTML = menu_member;
 

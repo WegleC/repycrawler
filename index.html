@@ -10,17 +10,26 @@
 </head>
 
 <body>
-    <p id="box1"></p>
-    <p id="box2"></p>
-    <p id="box3"></p>
+
+    <p id = "box1"></p>
+
+
 </body>
 </html>
 <script>
 
-    staff = {Name:"Wegle",Addr:"Yilan",Age:"22"};
     Menber = ["Yiru","Coco","Krito"];
 
-    document.getElementById("box1").innerHTML = "Area :"+staff.Addr;
-    document.getElementById("box2").innerHTML = "Staff Name :"+staff.Name;
-    document.getElementById("box3").innerHTML = "Supervisor :"+Menber [0];
+    menu_member = "<ul>";
+    
+    menu_member += "<li>" + Menber[0] + "</li>"+
+                    "<li>" + Menber[1] + "</li>"+
+                    "<li>" + Menber[2] + "</li>";
+    
+    menu_member += "</ul>";
+
+    console.log(menu_member);
+    
+    document.getElementById("box1").innerHTML = menu_member;
+
 </script>

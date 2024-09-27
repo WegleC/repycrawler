@@ -1,27 +1,26 @@
 import requests
+import json
+
 
 
 #%%
 
 def main():
 
-    r = requests.get('https://tw.rter.info/capi.php')
-    data = r.json()
+    r = requests.get('https://stats.moe.gov.tw/files/school/113/e1_new.json')
+    # print(r.status_code)
+    text = r.content.decode('utf-8-sig')
+    # print(text)
+    data = json.loads(text)
     # print(data)
     
-    for currency, info in data.items():
-        # print(currency)
-        # print(info)
-        
-        exrate = info['Exrate']
-        # print(exrate)
-        
-        updatetime = info['UTC']
-        # print(updatetime)
-        
-        print(f"Currency:{currency},Exrate:{exrate},Updatetime:{updatetime}")
-
-
+    for school in data:
+        print("學校名稱:",school['學校名稱'])
+        print("地址:",school['地址'])
+        print("電話:",school['電話'])
+        print("網址:",school['網址'])
+        print("=========================================")
+    
 
 
 #%%

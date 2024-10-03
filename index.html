@@ -1,40 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p id="student_table"></p>
+<html>
 
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <center>
+        銀行代碼 API:<br>
+        https://raw.githubusercontent.com/wsmwason/taiwan-bank-code/master/data/taiwanBankCodeATM.json
+        <br>
+        <table border=1>
+            <tr>
+                <td>code</td>
+                <td>name</td>
+            </tr>
+            <tbody id="row">
+                <tr>
+                    <td>004</td>
+                    <td>臺灣銀行</td>
+                </tr>
+                <tr>
+                    <td>005</td>
+                    <td>臺灣土地銀行</td>
+                </tr>
+            </tbody>
+
+        </table>
 </body>
+
 </html>
 
 <script>
-    data = { "student": [{ "firstName": "May", "lastName": "Jenny", "age": "23", "phone": "0912212445" }, { "firstName": "Dev", "lastName": "hen", "age": "24", "phone": "0912212445" }, { "firstName": "Tiffy", "lastName": "rosy", "age": "26", "phone": "0912212445" }, { "firstName": "PMay", "lastName": "PJenny", "age": "27", "phone": "0912212445" }, { "firstName": "QDev", "lastName": "Qhen", "age": "26", "phone": "0912212445" }, { "firstName": "VTiffy", "lastName": "Vrosy", "age": "25", "phone": "0912212445" }, { "firstName": "MMay", "lastName": "MJenny", "age": "22", "phone": "0912212445" }, { "firstName": "HDev", "lastName": "Hhen", "age": "21", "phone": "0912212445" }, { "firstName": "JKTiffy", "lastName": "Krosy", "age": "23", "phone": "0912212445" }, { "firstName": "MKTiffy", "lastName": "PProsy", "age": "23", "phone": "0912212445" }] }
-    console.log(data.student.length)
-
-    sLen = data.student.length
-
-    table = "<table border='1'>"
-
-    table += "<tr><td>No.</td><td>First Name</td><td>Last Name</td><td>First Name & Last Name</td><td>Age</td><td>Phone</td></tr>"
-
-    for (i = 0; i < sLen; i++) {
-        table += "<tr>" +
-            "<td>" + (i + 1) + "</td>" +
-            "<td>" + data.student[i].firstName + "</td>" +
-            "<td>" + data.student[i].lastName + "</td>" +
-            "<td>" + data.student[i].firstName + " " + data.student[i].lastName + "</td>" +
-            "<td>" + data.student[i].age + "</td>" +
-            "<td>" + data.student[i].phone + "</td>" +
-            "</tr>" 
-    }
-
-
-    table += "</table>"
-
-    document.getElementById("student_table").innerHTML = table;
+    
+    $(document).ready(function () {
+        $("#row").html("<tr><td>123</td><td>ABC</td></tr>");
+    });
 
 </script>

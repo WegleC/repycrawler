@@ -1,38 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="js/index.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-
 </head>
-
 <body>
-
-    <p id = "box1"></p>
-
-
+    
 </body>
 </html>
+
 <script>
-
-    Menber = ["Yiru","Coco","Krito","Wegle"];
-
-    menber_len = Menber.length;
-
-
-    menu_member = "<table border = 1>"+"<tr>";
-
-    for(i = 0; i < menber_len; i++ ){
-        menu_member +=  "<td>" + Menber[i] + "</td>" ;
-    }
-    
-    menu_member += "</tr>" + "</table>";
-
-    console.log(menu_member);
-    
-    document.getElementById("box1").innerHTML = menu_member;
-
+    mydata = {"students":[{"firstname":"May","lastname":"Jenny"},{ "firstname": "Wegle", "lastname": "Chen" },{ "firstname": "Krito", "lastname": "Lin" }]}
+    console.log(mydata)
 </script>

@@ -7,10 +7,21 @@ def main():
     print(r.status_code)
     
     data = r.json()
-    # print(data)
+    # print(data['result']['records'])
+    records = data['result']['records']
+    # print(records)
+    # print(len(records))
+    records_len = len(records)
     
-    for key, value in data.items():
-        print(key)
+    for i in range(records_len):
+        print("==============================")
+        for key, value in records[i].items():
+            print(key+":", value)
+            
+        
+        
+    
+
 
 
 

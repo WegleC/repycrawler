@@ -12,6 +12,7 @@
         <br>
         <table border=1>
             <tr>
+                <td align="center">no.</td>
                 <td>code</td>
                 <td align="center">name</td>
             </tr>
@@ -42,7 +43,7 @@
                     console.log(info[i].name);
                     console.log("=================");
                     
-                $("#row").append("<tr><td>" + info[i].code + "</td><td>" + info[i].name + "</td></tr>")
+                $("#row").append("<tr><td align='center'>" + (i+1) + "</td><td align='center'>" + info[i].code + "</td><td align='center'>" + info[i].name + "</td></tr>")
                 };
 
 

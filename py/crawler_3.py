@@ -17,10 +17,6 @@ def main():
         print("==============================")
         for key, value in records[i].items():
             print(key+":", value)
-            
-        
-        
-    
 
 
 

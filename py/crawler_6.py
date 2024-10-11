@@ -1,9 +1,14 @@
 import requests
 
 #%%
-
 def main():
-    r = requests.get('https://stats.moe.gov.tw/files/school/113/high.json')
+    r = requests.get('')
+
+
+
+
+
+
 
 
 
@@ -16,6 +21,5 @@ def main():
 
 
 #%%
-
 if __name__ == "__main__":
     main();

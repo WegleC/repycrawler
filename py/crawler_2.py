@@ -4,7 +4,7 @@ import json
 
 
 #%%
-
+# 國民小學名錄
 def main():
 
     r = requests.get('https://stats.moe.gov.tw/files/school/113/e1_new.json')

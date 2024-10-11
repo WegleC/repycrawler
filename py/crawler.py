@@ -1,7 +1,7 @@
 import requests
 import json
 #%%
-
+#各網域申請數量
 def main():
     r = requests.get('https://www.twnic.tw/dnjson.json')
     

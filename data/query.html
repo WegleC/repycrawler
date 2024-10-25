@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學校名錄查詢</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>學校名錄查詢</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../data/query.html">學校名錄查詢</a></li>
+                <li><a href="../contact/index.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>查詢台灣各地學校</h2>
+            <label for="search-school">搜尋學校名稱：</label>
+            <input type="text" id="search-school" placeholder="輸入學校名...">
+
+            <table id="school-table">
+                <thead>
+                    <tr>
+                        <th>縣市</th>
+                        <th>學校名稱</th>
+                        <th>學校級別</th>
+                        <th>類型</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 資料作為靜態範例 -->
+                    <tr>
+                        <td>台北市</td>
+                        <td>台北市第一高中</td>
+                        <td>高中</td>
+                        <td>公立</td>
+                    </tr>
+                    <tr>
+                        <td>新北市</td>
+                        <td>新北市國小</td>
+                        <td>小學</td>
+                        <td>私立</td>
+                    </tr>
+                    <tr>
+                        <td>高雄市</td>
+                        <td>高雄市職業技術學院</td>
+                        <td>技職</td>
+                        <td>公立</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 台灣各級學校統計資料查詢系統</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -53,15 +53,6 @@
             dataType: 'json',
             success: function (info) {
                 console.log(info);
-                const infoLen = info.length;
-                console.log(infoLen);
-                info.forEach(school => {
-                    console.log(school.學校名稱);
-                    console.log(school.地址);
-                    console.log(school.電話);
-                    console.log("=================");
-                    $("#row").append(`<tr><td>${school.學校名稱}</td><td>${school.地址}</td><td>${school.電話}</td></tr>`);
-                });
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.error("Request error:", textStatus, errorThrown);

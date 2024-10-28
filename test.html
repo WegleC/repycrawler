@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>taiwan-bank-code</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <center>
+        Taiwan-bank-code API:<br>
+        https://raw.githubusercontent.com/wsmwason/taiwan-bank-code/master/data/taiwanBankCodeATM.json
+        <br>
+        <table border=1>
+            <tr>
+                <td align="center">no.</td>
+                <td>code</td>
+                <td align="center">name</td>
+            </tr>
+            <tbody id="row">
+
+
+        </table>
+</body>
+
+</html>
+
+<script>
+
+    $(document).ready(function () {
+        <!-- $("#row").html("<tr><td>123</td><td>ABC</td></tr>"); -->
+
+        $.ajax({
+
+            url: 'https://raw.githubusercontent.com/wsmwason/taiwan-bank-code/master/data/taiwanBankCodeATM.json',
+            type: 'GET',
+            dataType: 'json',
+            success: function (info) {
+                console.log(info);
+                info_len = info.length;
+                console.log(info_len);
+                for (i = 0; i < info_len; i++) {
+                    console.log(info[i].code);
+                    console.log(info[i].name);
+                    console.log("=================");
+
+                    $("#row").append("<tr><td align='center'>" + (i + 1) + "</td><td align='center'>" + info[i].code + "</td><td align='center'>" + info[i].name + "</td></tr>")
+                };
+
+
+
+            },
+            error: function (data) {
+                console.log("request error:" + data);
+            }
+
+
+
+        })
+
+    });
+
+</script>

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="module" src="../js/proxy.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>幼兒園名錄</title>
     <link rel="stylesheet" href="../css/styles.css">
@@ -47,36 +46,26 @@
 </html>
 
 <script>
-
     $(document).ready(function () {
-
         $.ajax({
-
             url: 'https://stats.moe.gov.tw/files/school/112/k1_new.json',
             type: 'GET',
             dataType: 'json',
             success: function (info) {
                 console.log(info);
-                info_len = info.length;
-                console.log(info_len);
-                for (i = 0; i < info_len; i++) {
-                    console.log(info[i].code);
-                    console.log(info[i].name);
+                const infoLen = info.length;
+                console.log(infoLen);
+                info.forEach(school => {
+                    console.log(school.學校名稱);
+                    console.log(school.地址);
+                    console.log(school.電話);
                     console.log("=================");
-
-                    $("#row").append("<tr><td>" + info[i].學校名稱 + "</td><td>" + info[i].地址 + "</td><td>" + info[i].電話 + "</td></tr>")
-                };
-
-
-
+                    $("#row").append(`<tr><td>${school.學校名稱}</td><td>${school.地址}</td><td>${school.電話}</td></tr>`);
+                });
             },
-            error: function (data) {
-                console.log("request error:" + data);
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error("Request error:", textStatus, errorThrown);
             }
-
-
-
-        })
-
+        });
     });
 </script>

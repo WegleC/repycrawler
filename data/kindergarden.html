@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="module" src="../js/proxy.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幼兒園名錄</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>學校名錄查詢</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../data/query.html">學校名錄查詢</a></li>
+                <li><a href="../contact/index.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>幼兒園名錄</h2>
+            <table id="school-table">
+                <thead>
+                    <tr>
+                        <th>學校名稱</th>
+                        <th>學校地址</th>
+                        <th>連絡電話</th>
+                    </tr>
+                </thead>
+                <tbody id="row">
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 台灣各級學校統計資料查詢系統</p>
+    </footer>
+</body>
+
+</html>
+
+<script>
+
+    $(document).ready(function () {
+
+        $.ajax({
+
+            url: 'https://stats.moe.gov.tw/files/school/112/k1_new.json',
+            type: 'GET',
+            dataType: 'json',
+            success: function (info) {
+                console.log(info);
+                info_len = info.length;
+                console.log(info_len);
+                for (i = 0; i < info_len; i++) {
+                    console.log(info[i].code);
+                    console.log(info[i].name);
+                    console.log("=================");
+
+                    $("#row").append("<tr><td>" + info[i].學校名稱 + "</td><td>" + info[i].地址 + "</td><td>" + info[i].電話 + "</td></tr>")
+                };
+
+
+
+            },
+            error: function (data) {
+                console.log("request error:" + data);
+            }
+
+
+
+        })
+
+    });
+</script>

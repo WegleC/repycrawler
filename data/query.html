@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../favicon_io/site.webmanifest">
     <title>學校名錄查詢</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
@@ -22,38 +26,47 @@
 
     <main>
         <section>
-            <h2>查詢台灣各地學校</h2>
-            <label for="search-school">搜尋學校名稱：</label>
-            <input type="text" id="search-school" placeholder="輸入學校名...">
+            <h2>查詢台灣各級學校</h2>
+
 
             <table id="school-table">
                 <thead>
                     <tr>
-                        <th>縣市</th>
-                        <th>學校名稱</th>
+                        <th>序號</th>
+                        <th>資料名稱</th>
                         <th>學校級別</th>
-                        <th>類型</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 資料作為靜態範例 -->
                     <tr>
-                        <td>台北市</td>
-                        <td>台北市第一高中</td>
-                        <td>高中</td>
-                        <td>公立</td>
+                        <td>1</td>
+                        <td><a href="../data/kindergarden.html">幼兒園名錄</a></td>
+                        <td>學齡前教育機構</td>
                     </tr>
                     <tr>
-                        <td>新北市</td>
-                        <td>新北市國小</td>
+                        <td>2</td>
+                        <td><a href="../data/primary.html">國民小學名錄</a></td>
                         <td>小學</td>
-                        <td>私立</td>
                     </tr>
                     <tr>
-                        <td>高雄市</td>
-                        <td>高雄市職業技術學院</td>
-                        <td>技職</td>
-                        <td>公立</td>
+                        <td>3</td>
+                        <td><a href="../data/juniorhigh.html">國民中學名錄</a></td>
+                        <td>中學</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><a href="../data/seniorhigh.html">高級中等學校名錄</a></td>
+                        <td>高中</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><a href="../data/collegeanduniversities.html">大專校院名錄</a></td>
+                        <td>大專校院</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><a href="../data/militaryandpoliceacademy.html">軍警大專校院名錄</a></td>
+                        <td>大專校院</td>
                     </tr>
                 </tbody>
             </table>
@@ -63,8 +76,6 @@
     <footer>
         <p>&copy; 2024 台灣各級學校統計資料查詢系統</p>
     </footer>
-
-    <script src="js/script.js"></script>
 </body>
 
 </html>

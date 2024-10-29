@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國民中學名錄</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a.disabled {
+            color: #ccc;
+            pointer-events: none;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>學校名錄查詢</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="../data/query.html">學校名錄查詢</a></li>
+                <li><a href="../contact/index.html">聯絡我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>國民中學名錄</h2>
+            <table id="school-table">
+                <thead>
+                    <tr>
+                        <th>學校名稱</th>
+                        <th>學校地址</th>
+                        <th>連絡電話</th>
+                    </tr>
+                </thead>
+                <tbody id="row">
+                </tbody>
+            </table>
+            <div class="pagination" id="pagination"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 台灣各級學校統計資料查詢系統</p>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            const rowsPerPage = 20;
+            const maxPageButtons = 10;
+            let currentPage = 1;
+            let info = [];
+
+            function displayPage(page) {
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                const pageData = info.slice(start, end);
+
+                $("#row").empty();
+                pageData.forEach(item => {
+                    $("#row").append("<tr><td>" + item.學校名稱 + "</td><td>" + item.地址 + "</td><td>" + item.電話 + "</td></tr>");
+                });
+            }
+
+            function setupPagination(totalRows) {
+                const totalPages = Math.ceil(totalRows / rowsPerPage);
+                $("#pagination").empty();
+
+                $("#pagination").append("<a href='#' class='prev'>&laquo; 上一頁</a>");
+
+                let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
+                let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+                if (endPage - startPage < maxPageButtons - 1) {
+                    startPage = Math.max(1, endPage - maxPageButtons + 1);
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    $("#pagination").append("<a href='#' data-page='" + i + "'>" + i + "</a>");
+                }
+
+                $("#pagination").append("<a href='#' class='next'>下一頁 &raquo;</a>");
+
+                $(".pagination a").click(function (e) {
+                    e.preventDefault();
+                    if ($(this).hasClass('prev')) {
+                        if (currentPage > 1) currentPage--;
+                    } else if ($(this).hasClass('next')) {
+                        if (currentPage < totalPages) currentPage++;
+                    } else {
+                        currentPage = $(this).data("page");
+                    }
+                    displayPage(currentPage);
+                    setupPagination(totalRows);
+                });
+
+                updatePaginationButtons(totalPages);
+                $(".pagination a[data-page='" + currentPage + "']").addClass("active");
+            }
+
+            function updatePaginationButtons(totalPages) {
+                $(".pagination a").removeClass("disabled");
+                if (currentPage === 1) {
+                    $(".pagination a.prev").addClass("disabled");
+                }
+                if (currentPage === totalPages) {
+                    $(".pagination a.next").addClass("disabled");
+                }
+            }
+
+            $.ajax({
+                url: 'https://stats.moe.gov.tw/files/school/112/j1_new.json',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    info = data;
+                    setupPagination(info.length);
+                    displayPage(currentPage);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("Request error:", textStatus, errorThrown);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

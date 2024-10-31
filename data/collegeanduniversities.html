@@ -78,9 +78,9 @@
             let info = [];
 
             function displayPage(page) {
-                const start = (page - 1) * rowsPerPage;
-                const end = start + rowsPerPage;
-                const pageData = info.slice(start, end);
+                const start = (page - 1) * rowsPerPage; // if page = 1, 1-0*20=0
+                const end = start + rowsPerPage; // 0+20=20
+                const pageData = info.slice(start, end); // ==[0:20]
 
                 $("#row").empty();
                 pageData.forEach(item => {
